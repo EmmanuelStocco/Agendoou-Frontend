@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { getEntrepreneurBySlug } from '@/services/authService' // ajuste o caminho
+import { getEntrepreneurBySlug } from '@/services' // ajuste o caminho
 
 type Entrepreneur = {
   id: number

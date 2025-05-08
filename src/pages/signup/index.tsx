@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import { registerEntrepreneur, registerUser } from '@/services/authService'
+import { registerEntrepreneur, registerUser } from '@/services'
 
 export default function SignupPage() {
   const router = useRouter()

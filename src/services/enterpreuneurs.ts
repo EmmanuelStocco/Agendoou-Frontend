@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./authService"
+import { API_BASE_URL } from "."
 
 export async function getEntrepreneurBySlug(slug: string) {
     const response = await fetch(`${API_BASE_URL}/entrepreneurs/slug/${slug}`)

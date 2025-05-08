@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./authService"
+import { API_BASE_URL } from "."
 
 export async function login(email: string, password: string) {
     const response = await fetch(`${API_BASE_URL}/auth/login`, {

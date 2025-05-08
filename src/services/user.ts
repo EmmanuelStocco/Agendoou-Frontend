@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./authService"
+import { API_BASE_URL } from "."
 
 export async function registerUser(data: {
     name: string
