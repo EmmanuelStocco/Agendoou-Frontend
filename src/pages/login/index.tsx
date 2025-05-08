@@ -1,5 +1,3 @@
-// pages/login.tsx
-
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { login } from '@/services'
@@ -16,10 +14,8 @@ export default function LoginPage() {
     setLoading(true)
     setError('') 
     try { 
-        const data = await login(email, password)
-        console.log('Token ou dados recebidos:', data) 
-        localStorage.setItem('token', data.access_token)
-        // Redirecionar após login
+        const data = await login(email, password) 
+        localStorage.setItem('token', data.access_token) //salvar token
         router.push('/profile')
       } catch (error) {
         console.error('Erro no login:', error)
@@ -69,13 +65,13 @@ export default function LoginPage() {
               <input type="checkbox" id="remember" className="h-4 w-4 text-indigo-600 border-gray-300 rounded" />
               <label htmlFor="remember" className="ml-2 text-sm text-gray-700">Lembrar-me</label>
             </div>
-            <a href="#" className="text-sm text-indigo-600 hover:text-indigo-800">Esqueceu a senha?</a>
+            {/* <a href="#" className="text-sm text-indigo-600 hover:text-indigo-800">Esqueceu a senha?</a> */}
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition duration-300 disabled:opacity-50"
+            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition duration-300 cursor-pointer disabled:opacity-50"
           >
             {loading ? 'Entrando...' : 'Entrar'}
           </button>
@@ -86,7 +82,7 @@ export default function LoginPage() {
             Ainda não tem uma conta?{' '}
             <button
               onClick={() => router.push('/signup')}
-              className="text-indigo-600 hover:text-indigo-800 underline"
+              className="text-indigo-600 hover:text-indigo-800 cursor-pointer underline"
             >
               Cadastre-se
             </button>

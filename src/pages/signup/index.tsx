@@ -21,23 +21,23 @@ export default function SignupPage() {
     const updatedServices: any = [...services]
     updatedServices[index][field] = value
     setServices(updatedServices)
-  }
+  };
 
   const addService = () => {
     setServices([...services, { name: '', duration: 30, price: 0 }])
-  }
+  };
 
   const toggleAvailableDay = (day: any) => {
     setAvailableDays((prev: any) =>
       prev.includes(day) ? prev.filter((d: any) => d !== day) : [...prev, day]
     )
-  }
+  };
 
   const toggleAvailableHour = (hour: string) => {
     setAvailableHours((prev: any) =>
       prev.includes(hour) ? prev.filter((h: any) => h !== hour) : [...prev, hour]
     )
-  }
+  };
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -156,7 +156,6 @@ export default function SignupPage() {
           <button type="submit" className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">Cadastrar</button>
         </form>
         <div className="mt-4 text-center">
-        {/* href="" */}
           <a  className="text-sm text-indigo-600 hover:underline">Já tem conta? Entrar</a>
         </div>
       </div>
