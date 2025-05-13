@@ -49,12 +49,20 @@ export default function LojaPage() {
         </div>
 
         {/* Services */}
-        <div className="bg-white rounded-2xl shadow p-6 mb-6 border-l-4" style={{ borderColor: data.themeColor }}>
+        {/* <div className="bg-white rounded-2xl shadow p-6 mb-6 border-l-4" style={{ borderColor: data.themeColor }}>
           <h2 className="text-2xl font-semibold text-gray-800 mb-2">Serviços oferecidos</h2>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             {data.services.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
-        </div>
+        </div> */}
+
+        <ul className="list-disc list-inside text-gray-700 space-y-1">
+  {data.services.map((s, i) => (
+<li key={i}>
+  <span className="font-semibold">{s.name}</span>: R${s.price} – {s.duration}
+</li>
+  ))}
+</ul>
 
         {/* Availability */}
         <div className="bg-white rounded-2xl shadow p-6 mb-6 border-l-4" style={{ borderColor: data.themeColor }}>
