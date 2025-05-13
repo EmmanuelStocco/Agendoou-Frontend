@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { registerEntrepreneur, registerUser } from '@/services'
+import { ColorPicker } from '@/components/colorPicker'
 
 export default function SignupPage() {
   const router = useRouter()
@@ -43,7 +44,7 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
-  
+
     try {
       const userData = await registerUser({
         name,
@@ -51,7 +52,7 @@ export default function SignupPage() {
         password,
         role: isBusiness ? 'entrepreneur' : 'client',
       })
-  
+
       if (isBusiness) {
         await registerEntrepreneur({
           userId: userData.id,
@@ -64,13 +65,18 @@ export default function SignupPage() {
           services,
         })
       }
-  
+
       router.push('/login')
     } catch (err: any) {
       console.error(err)
       setError(err.message || 'Erro ao criar conta')
     }
   }
+
+  const handleSelectColor = (color: string) => {
+    setThemeColor(color)
+  }
+
 
   const dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
   const horas = ['09:00', '10:00', '11:00', '14:00', '15:00']
@@ -93,7 +99,9 @@ export default function SignupPage() {
           {isBusiness && (
             <div className="space-y-4">
               <input type="text" placeholder="Nome da Empresa" value={businessName} onChange={(e) => setBusinessName(e.target.value)} className="w-full border p-2 rounded" />
-              <input type="text" placeholder="Cor do Tema (ex: #FF5733)" value={themeColor} onChange={(e) => setThemeColor(e.target.value)} className="w-full border p-2 rounded" />
+              {/* <input type="text" placeholder="Cor do Tema (ex: #FF5733)" value={themeColor} onChange={(e) => setThemeColor(e.target.value)} className="w-full border p-2 rounded" /> */}
+
+              <ColorPicker handleSelectColorFather={handleSelectColor} />
               <input type="text" placeholder="Logo URL" value={logoUrl} onChange={(e) => setLogoUrl(e.target.value)} className="w-full border p-2 rounded" />
               <textarea placeholder="Descrição" value={description} onChange={(e) => setDescription(e.target.value)} className="w-full border p-2 rounded" />
 
@@ -156,7 +164,9 @@ export default function SignupPage() {
           <button type="submit" className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">Cadastrar</button>
         </form>
         <div className="mt-4 text-center">
-          <a  className="text-sm text-indigo-600 hover:underline">Já tem conta? Entrar</a>
+          <a href="/login" className="text-sm text-indigo-600 hover:underline">
+            Já tem conta? Entrar
+          </a>
         </div>
       </div>
     </div>
