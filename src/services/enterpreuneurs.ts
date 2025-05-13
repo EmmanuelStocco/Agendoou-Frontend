@@ -49,3 +49,24 @@ export async function findEntrepreneursByTag(q: string, token: string) {
 
     return await response.json()
 }
+
+export async function findEntrepreneursHours(slug: string, date: string, token: string) { 
+  const response = await fetch(
+
+    `${API_BASE_URL}/entrepreneurs/hours?entrepreneurId=${slug}&date=${date}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || 'Erro ao buscar horários do empreendedor');
+  }
+
+  return await response.json();
+}
