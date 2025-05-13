@@ -24,7 +24,7 @@ type Entrepreneur = {
   description: string
   availableDays: string[]
   availableHours: string[]
-  services: string[]
+  services: any[]
   slug: string
   user: {
     name: string
