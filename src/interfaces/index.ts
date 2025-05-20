@@ -5,6 +5,16 @@ interface Appointment {
     time: string;
     notes: string;
     status: string;
+    client?: {
+        id: string;
+        name: string;
+        email: string;
+    };
+    entrepreneur: {
+        id: string;
+        businessName: string;
+        slug: string;
+    };
 }
 
 interface User {
@@ -13,6 +23,9 @@ interface User {
     role: string;
     createdAt: string;
     appointmentsAsClient?: Appointment[];
+    appointmentsAsEntrepreneur?: Appointment[];
+    slug: string;
+    id: string;
 }
  
 
