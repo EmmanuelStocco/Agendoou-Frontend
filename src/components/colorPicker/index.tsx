@@ -9,6 +9,10 @@ const colorOptions = [
   '#33FFFF', // Cyan
   '#FF5733', // Orange
   '#FFFF00', // Gold
+  '#FF33CC', // Pink
+  '#33FFCC', // Teal
+  '#FF5733', // Coral 
+  '#000000', // Black
 ];
 type ColorPickerProps = {
   handleSelectColorFather: (color: string) => void;
@@ -68,12 +72,12 @@ export function ColorPicker({ handleSelectColorFather }: ColorPickerProps) {
                   {color}
                 </div>
               ))}
-              <div
+              {/* <div
                 className="p-2 cursor-pointer border-t"
                 onClick={() => setIsCustom(true)}
               >
                 Outro (Digite sua cor)
-              </div>
+              </div> */}
             </div>
           )}
         </div>
