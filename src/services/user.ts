@@ -25,7 +25,6 @@ export async function findUserByToken(token: string) {
         method: 'GET',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
     })
-
     if (!response.ok) {
         const error = await response.json()
         throw new Error(error.message || 'Erro ao criar usuário')
