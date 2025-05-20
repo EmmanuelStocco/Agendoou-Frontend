@@ -130,7 +130,7 @@ export default function SignupPage() {
               </div>
 
               <div>
-                <p>Serviços:</p>
+                <p>Serviços Oferecidos:</p>
                 {services.map((service, idx) => (
                   <div key={idx} className="flex gap-2 mb-2">
                     <input
@@ -140,20 +140,20 @@ export default function SignupPage() {
                       onChange={(e) => handleServiceChange(idx, 'name', e.target.value)}
                       className="flex-1 border p-1 rounded"
                     />
-                    <input
+                    {/* <input
                       type="number"
                       placeholder="Duração"
                       value={service.duration}
                       onChange={(e) => handleServiceChange(idx, 'duration', +e.target.value)}
                       className="w-24 border p-1 rounded"
-                    />
-                    <input
+                    /> */}
+                    {/* <input
                       type="number"
                       placeholder="Preço"
                       value={service.price}
                       onChange={(e) => handleServiceChange(idx, 'price', +e.target.value)}
                       className="w-24 border p-1 rounded"
-                    />
+                    /> */}
                   </div>
                 ))}
                 <button type="button" onClick={addService} className="text-sm text-indigo-600 hover:underline">+ Adicionar serviço</button>
@@ -161,7 +161,8 @@ export default function SignupPage() {
             </div>
           )}
 
-          <button type="submit" className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">Cadastrar</button>
+          <button type="submit" className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 cursor-pointer
+           ">Cadastrar</button>
         </form>
         <div className="mt-4 text-center">
           <a href="/login" className="text-sm text-indigo-600 hover:underline">
