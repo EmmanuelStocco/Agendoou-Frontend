@@ -1,0 +1,5 @@
+[X] separar services para alterar dinamicamente rotas do endpoint
+[] fora o token puchar dados do user para montar o perfil
+[] redirecionar de loja para /agendamento caso tenha token salvo no navegador
+[] Não permitir mais de um agendamento para mesmo dia e horario
+[] Retornar erros personalizados para cada validação
